@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const PORT = 3000;
+const PORT = 4000;
 
 // Crear la instacia del servidor
 const app = express();
