@@ -1,11 +1,15 @@
 const express = require("express");
 const cors = require("cors");
+const { connectDB } = require("./data/config");
 const PORT = 4000;
 
 // Crear la instacia del servidor
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+//Hacer la conexión a la BD
+connectDB();
 
 //Defibir la escucha
 app.listen(PORT,()=>{
