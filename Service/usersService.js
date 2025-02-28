@@ -3,7 +3,7 @@ const { User } = require("../models/userModel")
 // CREATE USERS
 const createUser = async (name, password)=>{
     try {
-        const newUser = new User(name, password):
+        const newUser = new User({username:name, password:password});
         const savedUser = await newUser.save();
         return savedUser;
     } catch (error) {
@@ -47,25 +47,32 @@ const getUserName = async(name)=>{
 }
 
 // UPDATE USER
-const setUpdateUser = async (id, data)=>{
+const setUpdateUser = async (id, data) => {
     try {
-        const userUpdated = await User.findByIdAndUpdate(id, data, {new:true});
+        const userUpdated = await User.findByIdAndUpdate(id, data, { new: true });
+        if (!userUpdated) {
+            console.log(`User with ID ${id} not found`);
+            return null;
+        }
         return userUpdated;
     } catch (error) {
-        console.log(error);
+        console.log(`Error updating user with ID ${id}:`, error);
         return null;
     }
 }
 
 //DELETE USER
-const deleteUser = async (name)=>{
+const deleteUser = async (name) => {
     try {
-        const userDeleted = await User.remove({username:name});
+        const userDeleted = await User.deleteOne({ username: name });
+        if (userDeleted.deletedCount === 0) {
+            console.log(`User with username ${name} not found`);
+            return null;
+        }
         return userDeleted;
     } catch (error) {
-        console.log(error);
+        console.log(`Error deleting user with username ${name}:`, error);
         return null;
-        
     }
 }
 
