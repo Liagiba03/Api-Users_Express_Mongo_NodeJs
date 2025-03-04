@@ -42,3 +42,17 @@ const getUserName = async(name)=>{
         return null;
     }
 }
+// UPDATE USER
+const setUpdateUser = async (id, data) => {
+    try {
+        const userUpdated = await User.findByIdAndUpdate(id, data, { new: true });
+        if (!userUpdated) {
+            console.log(`User with ID ${id} not found`);
+            return null;
+        }
+        return userUpdated;
+    } catch (error) {
+        console.log(`Error updating user with ID ${id}:`, error);
+        return null;
+    }
+}
