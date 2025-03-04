@@ -22,3 +22,13 @@ const getUsers = async ()=>{
         return null;
     }
 }
+//SHOW USER BY ID
+const getUserId = async(id)=>{
+    try {
+        const userFind = await User.findById(id);
+        return userFind;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
