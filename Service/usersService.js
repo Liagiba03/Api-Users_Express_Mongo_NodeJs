@@ -12,3 +12,13 @@ const createUser = async (name, password)=>{
         
     }
 }
+// SHOW ALL USERS
+const getUsers = async ()=>{
+    try {
+        const users = await User.find();
+        return users;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
