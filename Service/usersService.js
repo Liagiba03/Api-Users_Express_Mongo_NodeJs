@@ -56,3 +56,18 @@ const setUpdateUser = async (id, data) => {
         return null;
     }
 }
+//DELETE USER
+const deleteUser = async (name) => {
+    try {
+        const userDeleted = await User.deleteOne({ username: name });
+        if (userDeleted.deletedCount === 0) {
+            console.log(`User with username ${name} not found`);
+            return null;
+        }
+        return userDeleted;
+    } catch (error) {
+        console.log(`Error deleting user with username ${name}:`, error);
+        return null;
+    }
+}
+module.exports = {createUser, getUsers, getUserId, getUserName, setUpdateUser, deleteUser}
