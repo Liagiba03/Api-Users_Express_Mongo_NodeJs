@@ -32,3 +32,13 @@ const getUserId = async(id)=>{
         return null;
     }
 }
+//SHOW USER BY NAME
+const getUserName = async(name)=>{
+    try {
+        const userFind = await User.findOne({username:name});
+        return userFind;
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
