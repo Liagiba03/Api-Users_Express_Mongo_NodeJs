@@ -5,6 +5,7 @@ const router = require('express').Router();;
 router.post('/create-user', createUserController);
 router.get('/show-all-users',getUsersController);
 router.get('/show-user/:id',getUserIdController);
+router.get('/show-user-name/:name',getUserNameController);
 
 
 module.exports = router;
