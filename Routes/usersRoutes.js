@@ -6,7 +6,7 @@ router.post('/create-user', createUserController);
 router.get('/show-all-users',getUsersController);
 router.get('/show-user/:id',getUserIdController);
 router.get('/show-user-name/:name',getUserNameController);
-
+router.patch('/update-user/:id', setUpdateUserController);
 
 module.exports = router;
 
