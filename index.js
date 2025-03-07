@@ -21,6 +21,6 @@ app.listen(PORT,()=>{
 });
 
 //Definir la primera ruta
-app.get('/',(req,res)=>{
+/*app.get('/',(req,res)=>{
     res.json({msj: "Hola desde express usando json"})
-});
+});*/
