@@ -35,3 +35,17 @@ const getUserIdController = async (req, res)=>{
     }
 }
 
+// SHOW USER BY NAME
+const getUserNameController = async (req, res)=>{
+    const {name} = req.params;
+    const userName = await getUserName(name);
+    console.log(userName);
+    if(userName){
+        return res.status(200).json(userName);
+    }else if (userName === null){
+        return res.status(404).json({message: 'User not found'});
+    }else{
+        return res.status(500).json({message: 'DB no connected'});
+    }
+}
+
