@@ -49,3 +49,15 @@ const getUserNameController = async (req, res)=>{
     }
 }
 
+// UPDATE USER
+const setUpdateUserController = async (req, res)=>{
+    const {id} = req.params;
+    const data = req.body;
+    const updateUser = await setUpdateUser(id, data);
+    if(updateUser){
+        return res.status(200).json(updateUser);
+    }else{
+        return res.status(500).json({message:`DB no connected`});
+    }
+}
+
