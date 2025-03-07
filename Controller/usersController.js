@@ -71,3 +71,6 @@ const deleteUserController = async (req, res)=>{
         return res.status(500).json({message:`DB no connected`});
     }
 }
+module.exports = {createUserController, getUsersController, getUserIdController, 
+    getUserNameController, setUpdateUserController, deleteUserController};
+
