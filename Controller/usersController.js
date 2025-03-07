@@ -24,3 +24,14 @@ const getUsersController = async (req, res)=>{
     }
 }
 
+// SHOW USER BY ID
+const getUserIdController = async (req, res)=>{
+    const {id} = req.params;
+    const userId = await getUserId(id);
+    if(userId){
+        return res.status(200).json(userId);
+    }else{
+        return res.status(500).json({message: 'DB no connected'});
+    }
+}
+
