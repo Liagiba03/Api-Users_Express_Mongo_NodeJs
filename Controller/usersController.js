@@ -14,4 +14,13 @@ const createUserController= async (req,res)=>{
     }
 }
 
+//SHOW ALL USERS
+const getUsersController = async (req, res)=>{
+    const users = await getUsers();
+    if(users){
+        return res.status(200).json(users);
+    }else{
+        return res.status(500).json({message: 'DB no connected'});
+    }
+}
 
