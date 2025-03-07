@@ -61,3 +61,13 @@ const setUpdateUserController = async (req, res)=>{
     }
 }
 
+// DELETE USER
+const deleteUserController = async (req, res)=>{
+    const {name} = req.params;
+    const deletedUser = await deleteUser(name);
+    if(deletedUser){
+        return res.status(200).json(deletedUser);
+    }else{
+        return res.status(500).json({message:`DB no connected`});
+    }
+}
