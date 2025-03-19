@@ -1,4 +1,3 @@
-const { json } = require('express');
 const {createUser, getUsers, getUserId, getUserName, 
     setUpdateUser, deleteUser} = require('../Service/usersService.js');
 const { use } = require('../Routes/usersRoutes.js');
@@ -10,7 +9,7 @@ const createUserController= async (req,res)=>{
     if(newUser){
         return res.status(201).json(newUser);
     }else{
-        return res.status(500)-json({message: 'DB no connected'});
+        return res.status(500).json({message: 'DB no connected'});
     }
 }
 
