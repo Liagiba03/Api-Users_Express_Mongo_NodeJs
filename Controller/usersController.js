@@ -1,6 +1,5 @@
 const {createUser, getUsers, getUserId, getUserName, 
     setUpdateUser, deleteUser} = require('../Service/usersService.js');
-const { use } = require('../Routes/usersRoutes.js');
 
 //CREATE USER
 const createUserController= async (req,res)=>{
